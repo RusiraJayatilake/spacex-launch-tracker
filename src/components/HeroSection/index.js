@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Video1 from '../../videos/ironvideo1.mp4';
-import Video2 from '../../videos/ironvideo2.mp4';
-import Video3 from '../../videos/ironvideo3.mp4';
-import Video4 from '../../videos/ironvideo4.mp4';
+import React, { useState, useEffect } from "react";
+import Video1 from "../../videos/ironvideo1.mp4";
+import Video2 from "../../videos/ironvideo2.mp4";
+import Video3 from "../../videos/ironvideo3.mp4";
+import Video4 from "../../videos/ironvideo4.mp4";
 import {
   HeroContainer,
   HeroBg,
@@ -13,9 +13,9 @@ import {
   HeroBtnWrapper,
   ArrowForward,
   ArrowRight,
-} from './HeroElements';
-import { Button } from '../ButtonElement';
-import { animateScroll as scroll } from 'react-scroll';
+} from "./HeroElements";
+import { Button } from "../ButtonElement";
+import { animateScroll as scroll } from "react-scroll";
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
@@ -24,7 +24,7 @@ const HeroSection = () => {
   useEffect(() => {
     const videos = [Video1, Video2, Video3, Video4];
 
-    const videoElement = document.getElementById('heroVideo');
+    const videoElement = document.getElementById("heroVideo");
 
     const handleVideoEnd = () => {
       const currentVideoIndex = videos.indexOf(videoSrc);
@@ -33,11 +33,11 @@ const HeroSection = () => {
     };
 
     if (videoElement) {
-      videoElement.addEventListener('ended', handleVideoEnd);
+      videoElement.addEventListener("ended", handleVideoEnd);
     }
     return () => {
       if (videoElement) {
-        videoElement.removeEventListener('ended', handleVideoEnd);
+        videoElement.removeEventListener("ended", handleVideoEnd);
       }
     };
   }, [videoSrc]);
@@ -63,7 +63,7 @@ const HeroSection = () => {
         />
       </HeroBg>
       <HeroContent>
-        <HeroH1>Indigenous Iron Construction</HeroH1>
+        <HeroH1>SpaceX Launch Tracker</HeroH1>
         <HeroP>
           Bridging Cultures, Strengthening Communities and Providing Quality
           Contracting Services.
