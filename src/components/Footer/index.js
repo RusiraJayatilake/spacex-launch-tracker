@@ -4,11 +4,6 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./footer.css";
 
 const Footer = () => {
-  //function that scrolls to top of page
-  const toggleHome = () => {
-    scroll.scrollToTop();
-  };
-
   return (
     <div className="footer-container">
       <div className="footer-wrapper">
@@ -38,7 +33,7 @@ const Footer = () => {
             className="justify-content-center align-items-center mt-3"
             style={{ color: "#fff" }}
           >
-            © {new Date().getFullYear()} All rights reserved`
+            © {new Date().getFullYear()} All rights reserved
           </div>
         </div>
       </div>

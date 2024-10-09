@@ -99,9 +99,6 @@ const RocketDataTable = () => {
                 Rocket Type: <b>{value.rocket.rocket_type}</b>
               </CardSubtitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
-                Launch Date: <b>{value.launch_date_local}</b>
-              </CardSubtitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
                 Launch Year: <b>{value.launch_year}</b>
               </CardSubtitle>
               <Link
