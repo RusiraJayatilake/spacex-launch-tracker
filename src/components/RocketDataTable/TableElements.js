@@ -1,20 +1,5 @@
 import styled from "styled-components";
 
-export const TableWrapper = styled.div`
-  height: 860px;
-  width: 100%;
-  min-width: 1200px;
-  ${"" /* margin-right: 30px; */}
-  ${"" /* margin-left: 30px; */}
-  padding: 0 24px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const TableRow = styled.div`
-  overflow: scroll;
-`;
-
 export const Heading = styled.h1`
   font-size: 2.5rem;
   color: #000;

@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
 import SigninPage from "./pages/signin";
+import LaunchDetails from "./components/LaunchDetails/LaunchDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -11,7 +12,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/signin" component={SigninPage} exact />
+        <Route path="/details/:slug" component={LaunchDetails} exact />
       </Switch>
     </Router>
   </React.StrictMode>,

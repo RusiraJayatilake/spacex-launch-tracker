@@ -1,0 +1,29 @@
+.footer-container {
+  background-color: #101522;
+}
+
+.footer-wrapper {
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-size: 28px;
+  color: #fff;
+  text-decoration: none;
+}
+.social-item {
+  font-size: 23px;
+  color: #fff;
+}
+
+@media only screen and (max-width: 425px) {
+  .footer-title {
+    font-size: 20px;
+  }
+}
