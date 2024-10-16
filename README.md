@@ -2,7 +2,6 @@
 
 React SPA with react router and react scroll functionality.
 
-API = https://docs.spacexdata.com/
-Template = https://github.com/manyfranks/React-SPA
-
-Live Demo - https://spacex-launches-tracker.vercel.app/
+- API = https://docs.spacexdata.com/
+- Template = https://github.com/manyfranks/React-SPA
+- Live Demo - https://spacex-launches-tracker.vercel.app/

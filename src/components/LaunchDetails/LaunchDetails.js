@@ -49,65 +49,70 @@ const LaunchDetails = () => {
   return (
     <>
       <Container className="mt-5" style={{ minHeight: "100vh" }}>
-        <div className="row">
-          {error && <div>{error}</div>}
-          <h1 style={{ fontWeight: "600" }}>Launch Details</h1>
-          <p className="mt-3">
-            <strong>Mission Details: </strong>
-            {details}
-          </p>
+        <div className="row justify-content-center align-items-center">
+          <div className="col-md-6 col-sm-12">
+            {error && <div>{error}</div>}
+            <h1 style={{ fontWeight: "600", fontSize: "50px" }}>
+              Launch Details
+            </h1>
+            <p className="mt-3">
+              <strong>Mission Details: </strong>
+              {details}
+            </p>
 
-          <p className="mt-3">
-            <strong>Launch Date UTC: </strong>
-            {launch_date_utc}
-          </p>
-          <p className="mt-1">
-            <strong>Launch Date Local: </strong>
-            {launch_date_local}
-          </p>
-          <p className="mt-1">
-            <strong>Launch Year: </strong>
-            {launch_year}
-          </p>
+            <p className="mt-3">
+              <strong>Launch Date UTC: </strong>
+              {launch_date_utc}
+            </p>
+            <p className="mt-1">
+              <strong>Launch Date Local: </strong>
+              {launch_date_local}
+            </p>
+            <p className="mt-1">
+              <strong>Launch Year: </strong>
+              {launch_year}
+            </p>
 
-          <p className="mt-3">
-            <strong>Article Link: </strong>
-            <a href={article_link} target="_blank">
-              {article_link}
-            </a>
-          </p>
+            <p className="mt-3">
+              <strong>Article Link: </strong>
+              <a href={article_link} target="_blank">
+                {article_link}
+              </a>
+            </p>
 
-          <p className="mt-3">
-            <strong>Wikipedia Links: </strong>
-            <a href={wikipedia} target="_blank">
-              {wikipedia}
-            </a>
-          </p>
+            <p className="mt-3">
+              <strong>Wikipedia Links: </strong>
+              <a href={wikipedia} target="_blank">
+                {wikipedia}
+              </a>
+            </p>
 
-          <div className="mt-2">
-            <div className="player-wrapper">
-              <ReactPlayer
-                className="react-player"
-                url={video_link}
-                width="100%"
-                height="100%"
-              />
+            <div className="mt-2">
+              <div className="player-wrapper">
+                <ReactPlayer
+                  className="react-player"
+                  url={video_link}
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="d-flex mt-4 mb-5 gap-2 align-items-center">
-            <FaLongArrowAltLeft />
-            <Link
-              to="/"
-              style={{
-                width: "100px",
-                textDecoration: "none",
-                color: "#000",
-                cursor: "pointer",
-              }}
-            >
-              Go Back
-            </Link>
+            <div className="d-flex mt-4 mb-5 gap-2 align-items-center">
+              <FaLongArrowAltLeft />
+              <Link
+                to="/"
+                style={{
+                  width: "100px",
+                  textDecoration: "none",
+                  color: "#000",
+                  cursor: "pointer",
+                }}
+              >
+                Go Back
+              </Link>
+            </div>
           </div>
         </div>
       </Container>
