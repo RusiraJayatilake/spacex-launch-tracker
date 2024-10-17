@@ -49,6 +49,7 @@ const LaunchDetails = () => {
   return (
     <>
       <Container className="mt-5" style={{ minHeight: "100vh" }}>
+<<<<<<< Updated upstream
         <div className="row">
           {error && <div>{error}</div>}
           <h1 style={{ fontWeight: "600" }}>Launch Details</h1>
@@ -56,6 +57,16 @@ const LaunchDetails = () => {
             <strong>Mission Details: </strong>
             {details}
           </p>
+=======
+        <div className="row justify-content-center align-items-center">
+          <div className="col-md-6 col-sm-12">
+            {error && <div>{error}</div>}
+            <h1 className="details-title">Launch Details</h1>
+            <p className="mt-3">
+              <strong>Mission Details: </strong>
+              {details}
+            </p>
+>>>>>>> Stashed changes
 
           <p className="mt-3">
             <strong>Launch Date UTC: </strong>

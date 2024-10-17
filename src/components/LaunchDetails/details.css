@@ -9,17 +9,20 @@
   left: 0;
 }
 
-@media (min-width: 1024px) {
-  /* Laptop and Desktop screens */
-  .player-wrapper {
-    width: 640px;
-    height: 360px;
-    padding-top: 0;
+.details-title {
+  font-weight: 600;
+  font-size: 50px;
+}
+
+/* Media Queries */
+@media (min-width: 480px) {
+  .details-title {
+    font-size: 10px;
   }
 }
 
-@media (min-width: 1440px) {
-  /* Larger desktop screens */
+@media (min-width: 1024px) {
+  /* Laptop and Desktop screens */
   .player-wrapper {
     width: 640px;
     height: 360px;
