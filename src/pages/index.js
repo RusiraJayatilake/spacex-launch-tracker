@@ -8,7 +8,7 @@ import Services from "../components/Services";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import { contactForm } from "../components/ContactForm/Data";
-import RocketDataTable from "../components/RocketDataTable/RocketDataTable";
+import LaunchDataGrid from "../components/LaunchDataGrid/LaunchDataGrid";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const Home = () => {
       {/* <Navbar toggle={toggle} /> */}
       {/* <HeroSection /> */}
       {/* <Services /> */}
-      <RocketDataTable />
+      <LaunchDataGrid />
       {/* <InfoSection {...homeObjTwo}/> */}
       {/* <InfoSection {...homeObjOne} /> */}
       {/* <ContactForm {...contactForm} /> */}

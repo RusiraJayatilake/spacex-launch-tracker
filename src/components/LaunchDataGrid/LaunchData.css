@@ -1,7 +1,5 @@
-import styled from "styled-components";
-
-export const Heading = styled.h1`
-  font-size: 2.5rem;
+.grid-title {
+  font-size: 3rem;
   color: #000;
   margin-top: 42px;
   margin-bottom: 64px;
@@ -9,12 +7,17 @@ export const Heading = styled.h1`
   font-weight: 600;
   text-align: center;
   color: "#000";
+}
 
-  @media screen and (max-width: 768px) {
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .grid-title {
     font-size: 32px;
   }
+}
 
-  @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
+  .grid-title {
     font-size: 28px;
   }
-`;
+}

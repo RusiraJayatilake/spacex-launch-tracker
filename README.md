@@ -2,6 +2,8 @@
 
 React SPA with react router and react scroll functionality.
 
-Working version deployed on [Netlify](https://cranky-hugle-c83bd8.netlify.app/)# Iron-Construction
+- API = https://docs.spacexdata.com/
+- Template = https://github.com/manyfranks/React-SPA
+- Live Demo - https://spacex-launches-tracker.vercel.app/
 
-API = https://docs.spacexdata.com/
+Changes made to edit-1 branch
