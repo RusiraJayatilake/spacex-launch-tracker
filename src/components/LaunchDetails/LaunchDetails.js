@@ -52,9 +52,7 @@ const LaunchDetails = () => {
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 col-sm-12">
             {error && <div>{error}</div>}
-            <h1 style={{ fontWeight: "600", fontSize: "50px" }}>
-              Launch Details
-            </h1>
+            <h1 className="details-title">Launch Details</h1>
             <p className="mt-3">
               <strong>Mission Details: </strong>
               {details}

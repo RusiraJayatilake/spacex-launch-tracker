@@ -1,12 +1,11 @@
 .grid-title {
   font-size: 3rem;
   color: #000;
-  margin-top: 42px;
-  margin-bottom: 64px;
+  margin-top: 85px;
+  margin-bottom: 42px;
   line-height: 1.1;
   font-weight: 600;
   text-align: center;
-  color: "#000";
 }
 
 /* Media Queries */

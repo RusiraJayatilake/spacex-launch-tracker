@@ -1,11 +1,12 @@
 import React from "react";
-import { Container, CardBody, Card, CardTitle, CardSubtitle } from "reactstrap";
+import { Container } from "reactstrap";
 import { useEffect, useState } from "react";
 import { ThreeDot } from "react-loading-indicators";
-import { Link } from "react-router-dom";
-import "./LaunchData.css";
 
-const RocketDataTable = () => {
+import "./LaunchData.css";
+import DisplayCard from "../Card/DisplayCard";
+
+const LaunchDataGrid = () => {
   const [launchesData, setLaunchesData] = useState([]); // Data state
   const [page, setPage] = useState(1); // Page state for pagination
   const [isLoading, setIsLoading] = useState(false); // Loading state
@@ -59,49 +60,11 @@ const RocketDataTable = () => {
     <Container style={{ minHeight: "100vh" }}>
       <h1 className="grid-title">SpaceX Launch Data</h1>
 
-      <div className="row gap-4 mb-5 justify-content-center">
+      <div className="row">
         {error && <div>{error}</div>}
         {isLoading && <ThreeDot variant="bob" color="#363636" size="medium" />}
-        {launchesData.map((value, index) => (
-          <Card
-            style={{
-              width: "18rem",
-              boxShadow: "0 5px 25px 0 rgba(0, 0, 0, .2)",
-            }}
-            key={index}
-          >
-            <div className="w-100 d-flex justify-content-center align-items-center">
-              <img
-                alt="Sample"
-                loading="lazy"
-                src={value.links.mission_patch}
-                style={{
-                  width: "80%",
-                  height: "80%",
-                }}
-              />
-            </div>
-
-            <CardBody>
-              <CardTitle tag="h4">{value.mission_name}</CardTitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
-                Rocket Name: <b>{value.rocket.rocket_name}</b>
-              </CardSubtitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
-                Rocket Type: <b>{value.rocket.rocket_type}</b>
-              </CardSubtitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
-                Launch Year: <b>{value.launch_year}</b>
-              </CardSubtitle>
-              <Link
-                to={`/details/${value.flight_number}`}
-                style={{ textDecoration: "none" }}
-              >
-                Read More...
-              </Link>
-            </CardBody>
-          </Card>
-        ))}
+        {/* Card Component */}
+        <DisplayCard launchData={launchesData} />
       </div>
 
       <div className="row justify-content-center align-items-center">
@@ -118,4 +81,4 @@ const RocketDataTable = () => {
   );
 };
 
-export default RocketDataTable;
+export default LaunchDataGrid;
