@@ -1,17 +1,9 @@
 import React from "react";
-
-import { Heading } from "./TableElements";
-import {
-  Container,
-  CardBody,
-  Card,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-} from "reactstrap";
+import { Container, CardBody, Card, CardTitle, CardSubtitle } from "reactstrap";
 import { useEffect, useState } from "react";
 import { ThreeDot } from "react-loading-indicators";
 import { Link } from "react-router-dom";
+import "./LaunchData.css";
 
 const RocketDataTable = () => {
   const [launchesData, setLaunchesData] = useState([]); // Data state
@@ -65,7 +57,7 @@ const RocketDataTable = () => {
 
   return (
     <Container style={{ minHeight: "100vh" }}>
-      <Heading>SpaceX Launch Data</Heading>
+      <h1 className="grid-title">SpaceX Launch Data</h1>
 
       <div className="row gap-4 mb-5 justify-content-center">
         {error && <div>{error}</div>}

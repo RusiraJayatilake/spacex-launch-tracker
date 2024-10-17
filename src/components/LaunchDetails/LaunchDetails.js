@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import Footer from "../Footer";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-import "./details.css";
+import "./LaunchDetails.css";
 
 const LaunchDetails = () => {
   const { slug } = useParams();
