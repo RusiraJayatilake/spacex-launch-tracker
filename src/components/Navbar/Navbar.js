@@ -4,7 +4,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isToggled, setIsToggled] = useState(false);
   const navbarData = [
-    { title: "History", link: "#" },
+    { title: "History", link: "/history" },
     { title: "Title 2", link: "#" },
     { title: "Title 3", link: "#" },
     { title: "Title 4", link: "#" },

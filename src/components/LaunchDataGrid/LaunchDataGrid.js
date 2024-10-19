@@ -5,6 +5,7 @@ import { ThreeDot } from "react-loading-indicators";
 
 import "./LaunchData.css";
 import DisplayCard from "../Card/DisplayCard";
+import Layout from "../../layouts/layout";
 
 const LaunchDataGrid = () => {
   const [launchesData, setLaunchesData] = useState([]); // Data state
@@ -57,27 +58,34 @@ const LaunchDataGrid = () => {
   };
 
   return (
-    <Container style={{ minHeight: "100vh" }}>
-      <h1 className="grid-title">SpaceX Launch Data</h1>
+    <Layout>
+      <Container style={{ minHeight: "100vh" }}>
+        <h1 className="grid-title">SpaceX Launch Data</h1>
 
-      <div className="row">
-        {error && <div>{error}</div>}
-        {isLoading && <ThreeDot variant="bob" color="#363636" size="medium" />}
-        {/* Card Component */}
-        <DisplayCard launchData={launchesData} />
-      </div>
+        <div className="row">
+          {error && <div>{error}</div>}
+          {isLoading && (
+            <ThreeDot variant="bob" color="#363636" size="medium" />
+          )}
+          {/* Card Component */}
+          {/* {launchesData.map((data) => (
+          <DisplayCard data={data} />
+        ))} */}
+          <DisplayCard data={launchesData} />
+        </div>
 
-      <div className="row justify-content-center align-items-center">
-        <button
-          type="button"
-          className="btn btn-outline-dark mb-5"
-          onClick={loadMoreLaunchesData}
-          style={{ width: "150px", fontWeight: "500", fontSize: "20px" }}
-        >
-          Load More
-        </button>
-      </div>
-    </Container>
+        <div className="row justify-content-center align-items-center">
+          <button
+            type="button"
+            className="btn btn-outline-dark mb-5"
+            onClick={loadMoreLaunchesData}
+            style={{ width: "150px", fontWeight: "500", fontSize: "20px" }}
+          >
+            Load More
+          </button>
+        </div>
+      </Container>
+    </Layout>
   );
 };
 

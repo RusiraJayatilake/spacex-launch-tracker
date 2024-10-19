@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import { ThreeDot } from "react-loading-indicators";
-import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
-import Footer from "../Footer";
-import { FaLongArrowAltLeft } from "react-icons/fa";
+import Footer from "../Footer/Footer";
+import GoBackLink from "../GoBack/GoBackLink";
 import "./LaunchDetails.css";
 
 const LaunchDetails = () => {
@@ -97,20 +96,7 @@ const LaunchDetails = () => {
               </div>
             </div>
 
-            <div className="d-flex mt-4 mb-5 gap-2 align-items-center">
-              <FaLongArrowAltLeft />
-              <Link
-                to="/"
-                style={{
-                  width: "100px",
-                  textDecoration: "none",
-                  color: "#000",
-                  cursor: "pointer",
-                }}
-              >
-                Go Back
-              </Link>
-            </div>
+            <GoBackLink />
           </div>
         </div>
       </Container>

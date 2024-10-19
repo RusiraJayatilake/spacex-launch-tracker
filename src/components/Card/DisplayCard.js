@@ -1,10 +1,10 @@
 import { CardBody, Card, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const DisplayCard = ({ launchData }) => {
+const DisplayCard = ({ data }) => {
   return (
     <>
-      {launchData.map((value) => (
+      {data.map((value) => (
         <div className="col-12 col-md-4 col-lg-3 col-sm-12 mb-4">
           <div className="d-flex justify-content-center align-items-center">
             <Card
