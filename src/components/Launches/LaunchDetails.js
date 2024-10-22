@@ -5,6 +5,7 @@ import { ThreeDot } from "react-loading-indicators";
 import ReactPlayer from "react-player";
 import Footer from "../Footer/Footer";
 import GoBackLink from "../GoBack/GoBackLink";
+import spacexApiService from "../../services/SpaceXApiService";
 import "./LaunchDetails.css";
 
 const LaunchDetails = () => {
@@ -14,18 +15,21 @@ const LaunchDetails = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    try {
-      fetch(`https://api.spacexdata.com/v3/launches/${slug}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setLaunchDetails(data);
+    const fetchLaunchDetails = async () => {
+      setIsLoading(true);
+      try {
+        const responses = await spacexApiService.getV3("/launches", {
+          slug: slug,
         });
-    } catch (err) {
-      setError("Error fetching details", err);
-    } finally {
-      setIsLoading(false);
-    }
+        setLaunchDetails(responses);
+      } catch (err) {
+        setError("Error fetching details", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchLaunchDetails();
   }, [slug]);
 
   if (!launchDetails) {
@@ -38,8 +42,9 @@ const LaunchDetails = () => {
 
   // desctructuring data
   const {
-    details,
     links: { article_link, video_link, wikipedia },
+    launch_site: { site_id, site_name, site_name_long },
+    details,
     launch_date_utc,
     launch_date_local,
     launch_year,
@@ -47,7 +52,7 @@ const LaunchDetails = () => {
 
   return (
     <>
-      <Container className="mt-5" style={{ minHeight: "100vh" }}>
+      <Container className="mt-5">
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 col-sm-12">
             {error && <div>{error}</div>}
@@ -57,18 +62,29 @@ const LaunchDetails = () => {
               {details}
             </p>
 
-            <p className="mt-3">
-              <strong>Launch Date UTC: </strong>
-              {launch_date_utc}
-            </p>
-            <p className="mt-1">
-              <strong>Launch Date Local: </strong>
-              {launch_date_local}
-            </p>
-            <p className="mt-1">
-              <strong>Launch Year: </strong>
-              {launch_year}
-            </p>
+            <div className="mt-3">
+              <h3>Launch Dates</h3>
+              <ul>
+                <li>
+                  <p className="mt-1">
+                    <strong>Launch Date UTC: </strong>
+                    {launch_date_utc}
+                  </p>
+                </li>
+                <li>
+                  <p className="mt-1">
+                    <strong>Launch Date Local: </strong>
+                    {launch_date_local}
+                  </p>
+                </li>
+                <li>
+                  <p className="mt-1">
+                    <strong>Launch Year: </strong>
+                    {launch_year}
+                  </p>
+                </li>
+              </ul>
+            </div>
 
             <p className="mt-3">
               <strong>Article Link: </strong>
@@ -84,7 +100,31 @@ const LaunchDetails = () => {
               </a>
             </p>
 
-            <div className="mt-2">
+            <div className="mt-3">
+              <h3>Launch Site Details</h3>
+              <ul>
+                <li>
+                  <p className="mt-1">
+                    <strong>Site Id: </strong>
+                    {site_id}
+                  </p>
+                </li>
+                <li>
+                  <p className="mt-1">
+                    <strong>Site Name: </strong>
+                    {site_name}
+                  </p>
+                </li>
+                <li>
+                  <p className="mt-1">
+                    <strong>Site Name Long: </strong>
+                    {site_name_long}
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-3">
               <div className="player-wrapper">
                 <ReactPlayer
                   className="react-player"
@@ -96,7 +136,7 @@ const LaunchDetails = () => {
               </div>
             </div>
 
-            <GoBackLink />
+            <GoBackLink link={"/"} />
           </div>
         </div>
       </Container>

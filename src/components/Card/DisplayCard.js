@@ -5,7 +5,7 @@ const DisplayCard = ({ data }) => {
   return (
     <>
       {data.map((value) => (
-        <div className="col-12 col-md-4 col-lg-3 col-sm-12 mb-4">
+        <div className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4">
           <div className="d-flex justify-content-center align-items-center">
             <Card
               style={{
@@ -18,7 +18,7 @@ const DisplayCard = ({ data }) => {
                 <img
                   alt="Sample"
                   loading="lazy"
-                  src={value.links.mission_patch}
+                  src={value.links.mission_patch_small}
                   style={{
                     width: "80%",
                   }}
@@ -37,7 +37,7 @@ const DisplayCard = ({ data }) => {
                   Launch Year: <b>{value.launch_year}</b>
                 </CardSubtitle>
                 <Link
-                  to={`/details/${value.flight_number}`}
+                  to={`/launch-details/${value.flight_number}`}
                   style={{ textDecoration: "none" }}
                 >
                   Read More...

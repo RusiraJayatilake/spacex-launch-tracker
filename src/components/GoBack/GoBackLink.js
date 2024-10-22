@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
-const GoBackLink = () => {
+const GoBackLink = ({ link }) => {
   return (
     <div className="d-flex mt-4 mb-5 gap-2 align-items-center">
       <FaLongArrowAltLeft />
       <Link
-        to="/"
+        to={link}
         style={{
           width: "100px",
           textDecoration: "none",

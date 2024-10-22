@@ -2,10 +2,10 @@ import React from "react";
 import { Container } from "reactstrap";
 import { useEffect, useState } from "react";
 import { ThreeDot } from "react-loading-indicators";
-
-import "./LaunchData.css";
 import DisplayCard from "../Card/DisplayCard";
 import Layout from "../../layouts/layout";
+import spacexApiService from "../../services/SpaceXApiService";
+import PageTitle from "../PageTitle/PageTitle";
 
 const LaunchDataGrid = () => {
   const [launchesData, setLaunchesData] = useState([]); // Data state
@@ -19,13 +19,16 @@ const LaunchDataGrid = () => {
   const fetchLaunchesData = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(
-        `https://api.spacexdata.com/v3/launches/past?limit=${RESULTS_PER_PAGE}&offset=${
-          (page - 1) * RESULTS_PER_PAGE
-        }`
-      );
+      const queryParam = {
+        limit: RESULTS_PER_PAGE,
+        offset: (page - 1) * RESULTS_PER_PAGE,
+      };
 
-      const data = await response.json();
+      const response = await spacexApiService.getV3("/launches/past", {
+        queryParam,
+      });
+
+      const data = response;
 
       // Check if there is more data to load
       if (data.length < RESULTS_PER_PAGE) {
@@ -34,8 +37,7 @@ const LaunchDataGrid = () => {
 
       setLaunchesData((prevLaunches) => [...prevLaunches, ...data]);
     } catch (err) {
-      setError("Failed to fetch data");
-      console.error(err);
+      setError(`Error fetching launch data: ${err.message}`);
     } finally {
       setIsLoading(false);
     }
@@ -57,20 +59,22 @@ const LaunchDataGrid = () => {
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="row position-absolute w-100 h-100 align-items-center justify-content-center">
+        <ThreeDot variant="bob" color="#363636" size="medium" />
+      </div>
+    );
+  }
+
   return (
     <Layout>
       <Container style={{ minHeight: "100vh" }}>
-        <h1 className="grid-title">SpaceX Launch Data</h1>
+        <PageTitle title={"SpaceX Launch Data"} />
 
         <div className="row">
           {error && <div>{error}</div>}
-          {isLoading && (
-            <ThreeDot variant="bob" color="#363636" size="medium" />
-          )}
-          {/* Card Component */}
-          {/* {launchesData.map((data) => (
-          <DisplayCard data={data} />
-        ))} */}
+          {/* Display Card */}
           <DisplayCard data={launchesData} />
         </div>
 

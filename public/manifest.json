@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SpaceX Launch Tracker",
+  "name": "React SpaceX Launch Tracker",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LaunchDataGrid from "./components/LaunchDataGrid/LaunchDataGrid";
-import LaunchDetails from "./components/LaunchDetails/LaunchDetails";
-import HistoryDetails from "./components/HistoryDetails/HistoryDetails";
+import LaunchDataGrid from "./components/Launches/LaunchDataGrid";
+import LaunchDetails from "./components/Launches/LaunchDetails";
+import HistoryDetails from "./components/LaunchHistory/HistoryDetails";
+import HistoryDataGrid from "./components/LaunchHistory/HistoryDataGrid";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route path="/" component={LaunchDataGrid} exact />
-        <Route path="/details/:slug" component={LaunchDetails} exact />
-        <Route path="/history" component={HistoryDetails} exact />
+        <Route path="/history" component={HistoryDataGrid} exact />
+        <Route path="/launch-details/:slug" component={LaunchDetails} exact />
+        <Route path="/history-details/:slug" component={HistoryDetails} exact />
       </Switch>
     </Router>
   </React.StrictMode>,
