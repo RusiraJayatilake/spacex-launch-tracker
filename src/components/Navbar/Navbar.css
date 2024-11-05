@@ -1,3 +1,7 @@
-.nav-toggler {
+.navbar-toggler {
   border: none !important;
+}
+
+.nav-link {
+  font-size: 30px;
 }

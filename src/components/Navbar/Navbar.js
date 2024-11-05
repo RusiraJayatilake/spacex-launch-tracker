@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./Navbar.css";
+import { FiMenu, FiX } from "react-icons/fi";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
+import { useTheme } from "../../utils/context/ThemeProvider";
 
 const Navbar = () => {
   const [isToggled, setIsToggled] = useState(false);
+  const { toggleTheme, theme } = useTheme();
+
   const navbarData = [
     { title: "Launches", link: "/" },
     { title: "History", link: "/history" },
@@ -18,8 +22,6 @@ const Navbar = () => {
     setIsToggled(false);
   };
 
-  const handleTofuChange = () => {};
-
   return (
     <>
       <nav
@@ -27,24 +29,25 @@ const Navbar = () => {
         style={{ boxShadow: "0 5px 25px 0 rgba(0, 0, 0, .3)" }}
       >
         <div className="container">
-          <div className="navbar-brand">
-            <Toggle icons={false} onChange={handleTofuChange} />
+          <div className="navbar-brand d-flex align-items-center">
+            <Toggle icons={false} onChange={toggleTheme} checked={theme} />
           </div>
-          <button className="navbar-toggler" type="button">
-            <span
-              className="navbar-toggler-icon justify-content-end nav-toggler"
+          {/* Toggle Menu */}
+          <div className="navbar-toggler">
+            <FiMenu
+              className="justify-content-end nav-toggler"
+              style={{ fontSize: "25px" }}
               onClick={handleToggleMenu}
             />
-          </button>
+          </div>
+
           <div
             className={`offcanvas offcanvas-end ${isToggled ? "show" : ""}`}
-            tabindex="-1"
+            tabIndex="-1"
           >
-            <div className="offcanvas-header">
-              {/* <h5 className="offcanvas-title">Offcanvas</h5> */}
-              <button
-                type="button"
-                className="btn-close"
+            <div className="offcanvas-header justify-content-end">
+              <FiX
+                style={{ fontSize: "25px" }}
                 onClick={handleToggleMenuClose}
               />
             </div>

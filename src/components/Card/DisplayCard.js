@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const DisplayCard = ({ data }) => {
   return (
     <>
-      {data.map((value) => (
+      {data.map((value, index) => (
         <div className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4">
           <div className="d-flex justify-content-center align-items-center">
             <Card
@@ -12,7 +12,7 @@ const DisplayCard = ({ data }) => {
                 width: "18rem",
                 boxShadow: "0 5px 25px 0 rgba(0, 0, 0, .2)",
               }}
-              key={value.flight_number}
+              key={index}
             >
               <div className="w-100 d-flex justify-content-center align-items-center">
                 <img

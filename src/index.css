@@ -4,3 +4,23 @@
   padding: 0;
   font-family: "Roboto Mono", monospace;
 }
+
+[data-theme="light"] {
+  --bg-color: white;
+  --text-color: rgb(39, 39, 39);
+}
+
+[data-theme="dark"] {
+  --bg-color: rgb(39, 39, 39);
+  --text-color: white;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+h1 {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}

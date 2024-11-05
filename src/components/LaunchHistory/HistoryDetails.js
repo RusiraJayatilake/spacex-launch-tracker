@@ -46,7 +46,7 @@ const HistoryDetails = () => {
     <>
       <Container className="mt-5" style={{ minHeight: "100vh" }}>
         <div className="row justify-content-center align-items-center">
-          <div className="col-md-6 col-sm-12">
+          <div className="col-md-6">
             {error && <div>{error}</div>}
             <h1 className="details-title">History Details</h1>
             <p className="mt-3">
