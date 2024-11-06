@@ -17,9 +17,9 @@ createRoot(document.getElementById("root")).render(
       <Router>
         <Routes>
           <Route path="/" element={<LaunchDataGrid />} />
-          <Route path="/history" element={<HistoryDataGrid />} />
+          {/* <Route path="/history" element={<HistoryDataGrid />} /> */}
           <Route path="/launch-details/:slug" element={<LaunchDetails />} />
-          <Route path="/history-details/:slug" element={<HistoryDetails />} />
+          {/* <Route path="/history-details/:slug" element={<HistoryDetails />} /> */}
         </Routes>
       </Router>
     </ThemeProvider>
