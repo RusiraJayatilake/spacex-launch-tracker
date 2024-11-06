@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const navbarData = [
     { title: "Launches", link: "/" },
-    { title: "History", link: "/history" },
+    // { title: "History", link: "/history" },
   ];
 
   const handleToggleMenu = () => {
