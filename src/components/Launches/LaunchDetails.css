@@ -1,0 +1,26 @@
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.details-title {
+  font-weight: 600;
+  font-size: 50px;
+}
+
+/* Media Queries */
+
+@media (min-width: 1024px) {
+  /* Laptop and Desktop screens */
+  .player-wrapper {
+    width: 640px;
+    height: 360px;
+    padding-top: 0;
+  }
+}

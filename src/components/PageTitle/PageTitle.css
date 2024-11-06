@@ -1,0 +1,22 @@
+.grid-title {
+  font-size: 3rem;
+  color: #000;
+  margin-top: 85px;
+  margin-bottom: 42px;
+  line-height: 1.1;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .grid-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid-title {
+    font-size: 28px;
+  }
+}
