@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 import Toggle from "react-toggle";
-import "react-toggle/style.css";
 import { useTheme } from "../../utils/context/ThemeProvider";
+import "react-toggle/style.css";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -11,6 +11,7 @@ const Navbar = () => {
 
   const navbarData = [
     { title: "Launches", link: "/" },
+    { title: "Missions", link: "/missions" },
     { title: "History", link: "/history" },
   ];
 

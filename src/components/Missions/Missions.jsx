@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { CardBody, Card, CardTitle, CardSubtitle, Container } from "reactstrap";
+import Layout from "../../layouts/layout";
+import PageTitle from "../PageTitle/PageTitle";
+import { Container, Card, CardTitle, CardSubtitle, CardBody } from "reactstrap";
 import SpacexApiService from "../../services/SpaceXApiService";
 import { ThreeDot } from "react-loading-indicators";
-import Layout from "../../layouts/layout";
 import { Link } from "react-router-dom";
 
-import "../../index.css";
-import PageTitle from "../PageTitle/PageTitle";
-
-const HistoryDataGrid = () => {
-  const [historyData, setHistoryData] = useState([]);
+const Missions = () => {
+  const [missionData, setMissionData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchHistoryData = async () => {
+    const fetchMissionData = async () => {
       setIsLoading(true);
       try {
-        const res = await SpacexApiService.getV4("/history");
-        setHistoryData(res);
+        const res = await SpacexApiService.getV3("/missions");
+        setMissionData(res);
       } catch (err) {
         console.error(err);
       } finally {
@@ -25,7 +23,7 @@ const HistoryDataGrid = () => {
       }
     };
 
-    fetchHistoryData();
+    fetchMissionData();
   }, []);
 
   if (isLoading) {
@@ -39,10 +37,9 @@ const HistoryDataGrid = () => {
   return (
     <Layout>
       <Container style={{ minHeight: "100vh" }}>
-        {/* <h1 className="grid-title">SpaceX History</h1> */}
-        <PageTitle title={"SpaceX History"} />
+        <PageTitle title={"SpaceX Missions"} />
         <div className="row">
-          {historyData.map((value, index) => (
+          {missionData.map((value, index) => (
             <div className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4">
               <div className="d-flex justify-content-center align-items-center">
                 <Card
@@ -53,16 +50,22 @@ const HistoryDataGrid = () => {
                   key={index}
                 >
                   <CardBody>
-                    <CardTitle tag="h4">{value.title}</CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Event Date: <b>{value.event_date_utc}</b>
-                    </CardSubtitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Date Unix: <b>{value.event_date_unix}</b>
-                    </CardSubtitle>
+                    <CardTitle tag="h4">{value.mission_name}</CardTitle>
+                    <div className="row">
+                      <CardSubtitle className="mb-2 text-muted" tag="h6">
+                        <b>Manufacturers</b>
+                      </CardSubtitle>
+                      <div style={{ padding: "8px 0px auto 0px" }}>
+                        {value.manufacturers.map((val, i) => (
+                          <ul key={i}>
+                            <li style={{ lineHeight: "1.2" }}>{val}</li>
+                          </ul>
+                        ))}
+                      </div>
+                    </div>
 
                     <Link
-                      to={`/history-details/${value.id}`}
+                      to={`/mission-details/${value.mission_id}`}
                       style={{ textDecoration: "none" }}
                     >
                       Read More...
@@ -78,4 +81,4 @@ const HistoryDataGrid = () => {
   );
 };
 
-export default HistoryDataGrid;
+export default Missions;

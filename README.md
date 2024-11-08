@@ -39,6 +39,12 @@ Start the server
 
 ## API Reference
 
+#### Official Documentation
+
+```http
+  https://docs.spacexdata.com/
+```
+
 #### Base URL
 
 ```http

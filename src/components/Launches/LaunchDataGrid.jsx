@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ThreeDot } from "react-loading-indicators";
 import DisplayCard from "../Card/DisplayCard";
 import Layout from "../../layouts/layout";
-import { getV3 } from "../../services/SpaceXApiService";
+import SpacexApiService from "../../services/SpaceXApiService";
 import PageTitle from "../PageTitle/PageTitle";
 
 const LaunchDataGrid = () => {
@@ -24,7 +24,7 @@ const LaunchDataGrid = () => {
         offset: (page - 1) * RESULTS_PER_PAGE,
       };
 
-      const response = await getV3("/launches/past", {
+      const response = await SpacexApiService.getV3("/launches/past", {
         queryParam,
       });
 
@@ -70,12 +70,22 @@ const LaunchDataGrid = () => {
   return (
     <Layout>
       <Container style={{ minHeight: "100vh" }}>
-        <PageTitle title={"SpaceX Launch Data"} />
+        <PageTitle title={"SpaceX Launches"} />
 
         <div className="row">
           {error && <div>{error}</div>}
           {/* Display Card */}
-          <DisplayCard data={launchesData} />
+          {launchesData.map((value, index) => (
+            <DisplayCard
+              index={index}
+              image={value.links.mission_patch_small}
+              title={value.mission_name}
+              name={value.rocket.rocket_name}
+              type={value.rocket.rocket_type}
+              year={value.launch_year}
+              id={value.flight_number}
+            />
+          ))}
         </div>
 
         <div className="row justify-content-center align-items-center">

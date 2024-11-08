@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // api version 3
-export const getV3 = async (endpoint, options = {}) => {
+const getV3 = async (endpoint, options = {}) => {
   const { slug = "", queryParam = {} } = options; // destructure from options
   let base_url = `https://api.spacexdata.com/v3${endpoint}`;
 
@@ -32,7 +32,7 @@ export const getV3 = async (endpoint, options = {}) => {
 };
 
 // api version 4
-export const getV4 = async (endpoint, options = {}) => {
+const getV4 = async (endpoint, options = {}) => {
   const { slug = "" } = options; // destructure from options
   let base_url = `https://api.spacexdata.com/v4${endpoint}`;
 

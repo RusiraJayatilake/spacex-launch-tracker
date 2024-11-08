@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import "../../index.css";
 
 // services
-import spacexApiService from "../../services/SpaceXApiService";
+import SpacexApiService from "../../services/SpaceXApiService";
 
 const HistoryDetails = () => {
   const { slug } = useParams();
@@ -17,7 +17,7 @@ const HistoryDetails = () => {
   useEffect(() => {
     const fetchHistoryDetails = async () => {
       try {
-        const data = await spacexApiService.getV4("/history", { slug: slug });
+        const data = await SpacexApiService.getV4("/history", { slug: slug });
         setHistoryDetails(data);
       } catch (err) {
         setError(`Error fetching history details: ${err.message}`);
